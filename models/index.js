@@ -2,6 +2,7 @@
 const User = require('./user');
 const Game = require('./game');
 const Event = require('./event');
+const Message = require('./Message');
 const UsersGames = require('./usersGames');
 const EventsGames = require('./eventsGames');
 const UsersEvents = require('./usersEvents');
@@ -13,6 +14,10 @@ User.hasMany(Game, {
 });
 
 User.hasMany(Event, {
+  foreignKey: 'user_id'
+});
+
+User.hasMany(Message, {
   foreignKey: 'user_id'
 });
 
@@ -74,5 +79,9 @@ Event.belongsToMany(Game, {
   otherKey: 'game_id'
 });
 
+Message.belongsTo(User, {
+  foreignKey: 'user_id'
+});
+
 // Export
-module.exports = { User, Game, Event, UsersEvents, UsersGames, EventsGames };
+module.exports = { User, Game, Event, UsersEvents, UsersGames, EventsGames, Message };
