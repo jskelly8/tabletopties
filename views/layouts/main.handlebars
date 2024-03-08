@@ -19,11 +19,13 @@
         <div class="navbar">
           <div class="navbar1">
           <button><a href="/">Home</a></button>
-          <button><a href="/game/add">Add Game</a></button>
-          <button><a href="/event/add">Create Event</a></button>
+          
           </div>
           <div class="navbar2">
           {{#if logged_in}}
+          <button><a href="/chat">Chat</a></button>
+          <button><a href="/game/add">Add Game</a></button>
+          <button><a href="/event/add">Create Event</a></button>
           <button><a href="/profile">Profile</a></button>
           <button><a href="#" id="logout">Logout</a></button>
           {{else}}

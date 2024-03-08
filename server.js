@@ -62,14 +62,15 @@ io.on('connection', (socket) => {
   });
 
   socket.on('chat message', (message) => {
-    // Access session to get the user's username
-    const username = socket.handshake.session.username; // Adjust based on where username is stored
+    const username = socket.handshake.session.username;
+    const userId = socket.handshake.session.user_id;
     console.log(`message from ${username}: ${message}`);
     Message.create({
-        username: username, // Use username from session
+        username: username,
+        userId: userId,
         message: message
     }).then(() => {
-        io.emit('chat message', { username, message });
+        io.emit('chat message', { userId, username, message });
     }).catch(err => console.error(err));
   });
 });
