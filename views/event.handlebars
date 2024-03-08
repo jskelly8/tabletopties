@@ -23,7 +23,7 @@
         <h2>Attendees</h2>
         <ul>
             {{#each attending}}
-            <li>{{this.name}}</li>
+            <li><a href="/users/{{this.id}}">{{this.name}}</a></li>
             {{/each}}
         </ul>
     </div>

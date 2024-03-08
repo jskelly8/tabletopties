@@ -117,7 +117,7 @@ router.get('/games/:id', async (req, res) => {
             include: [{
                 model: User,
                 as: 'interested_users',
-                attributes: ['name'],
+                attributes: ['id', 'name'],
                 through: {
                     attributes: [],
                 },
@@ -148,7 +148,7 @@ router.get('/events/:id', withAuth, async (req, res) => {
                 {
                     model: User,
                     as: 'attending', 
-                    attributes: ['name'],
+                    attributes: ['id', 'name'],
                     through: {
                         attributes: [],
                     },
