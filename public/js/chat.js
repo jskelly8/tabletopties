@@ -16,6 +16,7 @@ window.onload = function() {
         var item = document.createElement('li');
         if(data && data.username && data.message) {
             var userLink = document.createElement('a');
+            userLink.style.fontWeight = 'bold';
             userLink.setAttribute('href', `/users/${data.userId}`);
             userLink.textContent = data.username;
     

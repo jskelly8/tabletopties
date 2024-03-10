@@ -64,10 +64,10 @@ io.on('connection', (socket) => {
   socket.on('chat message', (message) => {
     const username = socket.handshake.session.username;
     const userId = socket.handshake.session.user_id;
-    console.log(`message from ${username}: ${message}`);
+    console.log(`message from ${username}: ${message} : ID=${userId}`);
     Message.create({
         username: username,
-        userId: userId,
+        user_id: userId,
         message: message
     }).then(() => {
         io.emit('chat message', { userId, username, message });
