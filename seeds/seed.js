@@ -4,7 +4,6 @@ const { User, Game, Event, Message } = require('../models');
 const userData = require('./userData.json');
 const gameData = require('./gameData.json');
 const eventData = require('./eventData.json');
-const messageData = require('./messageData.json'); 
 
 const seedDatabase = async () => {
     try {
@@ -28,9 +27,6 @@ const seedDatabase = async () => {
                 game_id: games[Math.floor(Math.random() * games.length)].id,
             });
         }
-
-        // Seed messages
-        await Message.bulkCreate(messageData);
 
         console.log('Database seeded successfully.');
     } catch (err) {
