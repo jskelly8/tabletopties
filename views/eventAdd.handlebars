@@ -1,31 +1,46 @@
-<div class="event-add">
-        <h2>Create a New Event</h2>
-        <form id="addEventForm">
-            <div class="form-group">
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" placeholder="Event Title" class="form-control" required>
+<main class="container mobile">
+    <h2 class="text-center mb-5">Create a New Event</h2>
+    <form id="addEventForm">
+        <div class="row mb-3">
+            <label for="title" class="col-sm-2 col-form-label col-form-label-lg">Title:</label>
+            <div class="col-sm-10">
+                <input type="text" id="title" name="title" placeholder="Event Title"
+                    class="form-control form-control-lg" required>
             </div>
-            <div class="form-group">
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" placeholder="Event Description" class="form-control"></textarea>
+        </div>
+        <div class="row mb-3">
+            <label for="description" class="col-sm-2 col-form-label col-form-label-lg">Description:</label>
+            <div class="col-sm-10">
+                <textarea id="description" name="description" placeholder="Event Description"
+                    class="form-control form-control-lg"></textarea>
             </div>
-            <div class="form-group">
-                <label for="location">Location:</label>
-                <input type="text" id="location" name="location" placeholder="City Name" class="form-control">
+        </div>
+        <div class="row mb-3">
+            <label for="location" class="col-sm-2 col-form-label col-form-label-lg">Location:</label>
+            <div class="col-sm-10">
+                <input type="text" id="location" name="location" placeholder="City Name"
+                    class="form-control form-control-lg">
             </div>
-            <div class="form-group">
-                <label for="date_of">Date:</label>
-                <input type="date" id="date_of" name="date_of" class="form-control" required>
+        </div>
+        <div class="row mb-3">
+            <label for="date_of" class="col-sm-2 col-form-label col-form-label-lg">Date:</label>
+            <div class="col-sm-10">
+                <input type="date" id="date_of" name="date_of" class="form-control form-control-lg" required>
             </div>
-            <div class="form-group">
-                <label for="game_id">Game:</label>
+        </div>
+        <div class="row mb-3">
+            <label for="game_id" class="col-sm-2 col-form-label col-form-label-lg">Game:</label>
+            <div class="col-sm-10">
                 <select id="game_id" name="game_id" class="form-control" required>
                     {{#each games}}
                     <option value="{{this.id}}">{{this.title}}</option>
                     {{/each}}
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Create Event</button>
-        </form>
-    </div>
+        </div>
+         <div class="d-flex justify-content-center mb-5">
+            <button type="submit" class="btn btn-danger">Create Event</button>
+        </div>
+    </form>
+</main>
 <script src="/js/addEvent.js"></script>

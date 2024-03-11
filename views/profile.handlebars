@@ -1,46 +1,61 @@
-<div class="profile-home">
-    <div class="row">
-        <div class="col-12">
-            <h1 class="text-center">Profile</h1>
-            <div class="profile-info mt-3">
-                <h2>{{name}}'s Profile</h2>
-                <p>Email: {{email}}</p>
-                <p>Location: {{location}} </p>
-                <!-- Additional user information can go here -->
-            </div>
-            <div class="interested-games mt-5">
-                <h3>Games I'm Interested In</h3>
-                {{#if interested_games.length}}
-                <div class="list-group">
-                    {{#each interested_games}}
-                    <a href="/games/{{this.id}}" class="list-group-item list-group-item-action">
-                        {{this.title}} - {{this.genre}}
-                    </a>
-                    {{/each}}
-                </div>
-                {{else}}
-                <p>You haven't added any games to your profile yet.</p>
-                {{/if}}
-            </div>
+<div class="container mobile">
+    <div class="text-center">
+        <h1>{{username}}'s Profile</h1>
+        <div class="my-4 border-bottom border-2">
+            <h3 class="text-danger">Personal Info</h3>
+            <p class="fs-4">Name: {{name}}</p>
+            <p class="fs-4">Email: {{email}}</p>
+            <p class="fs-4">Location: {{location}} </p>
+            <!-- Additional user information can go here -->
+        </div>
 
-            <div class="user-events mt-5">
-                <h3>Upcoming Events</h3>
-                {{#if attendees.length}}
-                <div class="list-group">
-                    {{#each attendees}}
-                    <a href="/events/{{this.id}}" class="list-group-item list-group-item-action">
-                        {{this.title}}
-                    </a>
-                    {{/each}}
+        <div class="mb-4 border-bottom border-2">
+            <h3 class="text-danger">Games I'm Interested In</h3>
+            {{#if interested_games.length}}
+            <div class="row">
+                {{#each interested_games}}
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="card text-bg-dark text-center m-4 bg-black bg-gradient">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.title}}</h5>
+                            <p class="card-text">{{this.genre}}</p>
+                            <a href="/games/{{this.id}}" class="btn btn-outline-danger btn-sm">More Info</a>
+                        </div>
+                    </div>
                 </div>
-                {{else}}
-                <p>You are not participating in any upcoming events</p>
-                {{/if}}
+                {{/each}}
             </div>
-            <br>
-            {{#if isCurrentUser}}
-            <a href="/profile/edit" class="btn btn-outline-primary btn-sm d-flex justify-content-center">Edit Profile</a>
+            {{else}}
+            <p class="fs-4">No games added to profile yet.</p>
             {{/if}}
         </div>
+
+        <div class="mb-4">
+            <h3 class="text-danger">Upcoming Joined Events</h3>
+            {{#if attendees.length}}
+            <div class="row">
+                {{#each attendees}}
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="card text-bg-dark text-center m-4 bg-black bg-gradient">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.title}}</h5>
+                            <p class="card-text">{{format_date date_of}}</p>
+                            <a href="/events/{{this.id}}" class="btn btn-outline-danger btn-sm">More Info</a>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            {{else}}
+            <p class="fs-4">Not participating in any upcoming events yet.</p>
+            {{/if}}
+        </div>
+        
+        {{#if isCurrentUser}}
+        <div class="d-flex justify-content-center mb-5">
+            <a href="/profile/edit" class="btn btn-danger">Edit
+                Profile</a>
+        </div>
+        {{/if}}
     </div>
 </div>

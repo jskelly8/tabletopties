@@ -1,33 +1,35 @@
-<div class="single-game">
-    <div class="game-detail">
-        <h1 class="game-title">{{title}}</h1>
-        <p><strong>Genre:</strong> {{genre}}</p>
-        <div class="game-description">
-            <h3>Description:</h3>
-            <p>{{description}}</p>
+<main class="container mobile">
+    <div class="text-center">
+        <h1>{{title}}</h1>
+        <div class="my-4 border-bottom border-2">
+            <h3 class="text-danger">Genre</h3>
+            <p class="fs-4">{{genre}}</p>
         </div>
-        <button data-gameid="{{id}}" id="gameInterest" class="btn btn-dark">I'm Interested</button>
-
-        <!-- Assuming there are images associated with the game -->
-        {{#if images}}
-        <div class="game-images mt-3">
-            <h3>Images</h3>
-            {{#each images}}
-            <img src="{{this}}" alt="Game Image" class="img-fluid">
-            {{/each}}
+        <div class="mb-4 border-bottom border-2">
+            <h3 class="text-danger">Description</h3>
+            <p class="fs-4">{{description}}</p>
+            <div>
+                <button data-gameid="{{id}}" id="gameInterest" class="btn btn-danger btn-sm mb-4">I'm
+                    Interested</button>
+            </div>
         </div>
-        {{/if}}
         <!-- Display interested users if available -->
-        {{#if interested_users}}
-        <div class="interested-users mt-3">
-            <h3>Interested Users</h3>
-            <ul>
-                {{#each interested_users}}
-                <li><a href="/users/{{this.id}}">{{this.name}}</a></li>
-                {{/each}}
-            </ul>
+        <div class="mb-4">
+            <h3 class="text-danger mb-3">Interested Users</h3>
+            <div class="d-flex justify-content-center">
+                {{#if interested_users}}
+                <ul class="list-group bg-dark col-sm-2 mb-3 mb-sm-0">
+                    {{#each interested_users}}
+                    <li class="list-group-item bg-dark text-light">
+                        <a href="/users/{{this.id}}" class="text-light text-decoration-none">{{this.name}}</a>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{else}}
+                <p class="fs-4">No interested players yet.</p>
+                {{/if}}
+            </div>
         </div>
-        {{/if}}
     </div>
-</div>
+</main>
 <script src="/js/gameInterest.js"></script>

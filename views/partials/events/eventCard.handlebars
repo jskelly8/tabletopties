@@ -1,11 +1,11 @@
-<div class="card text-bg-dark text-center m-4">
+<div class="card text-bg-dark text-center m-4 bg-black bg-gradient">
     <div class="card-header">
-        {{title}}
+        <h5 class="card-title">{{title}}</h5>
     </div>
     <div class="card-body">
-        <h5 class="card-title">Date: {{format_date date_of}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Location: {{location}}</h6>
+        <h5 class="card-subtitle mb-3">Date: {{format_date date_of}}</h5>
+        <h6 class="card-text">Location: {{location}}</h6>
         <p class="card-text">Description: {{description}}</p>
-        <a href="/events/{{id}}" class="btn btn-dark">Event Details</a>
+        <a href="/events/{{id}}" class="btn btn-outline-danger">Event Details</a>
     </div>
 </div>

@@ -8,45 +8,139 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/style.css">
-  
 </head>
 
 <body>
   <header>
     <div class="header">
-      <div class="logo"><strong>Tabletop Ties</strong>
-      </div>
-        <div class="navbar">
-          <div class="navbar1">
-          <button><a href="/">Home</a></button>
-          
-          </div>
-          <div class="navbar2">
-          {{#if logged_in}}
-          <button><a href="/chat">Chat</a></button>
-          <button><a href="/game/add">Add Game</a></button>
-          <button><a href="/event/add">Create Event</a></button>
-          <button><a href="/profile">Profile</a></button>
-          <button><a href="#" id="logout">Logout</a></button>
-          {{else}}
-          <button><a href="/login" class="login-button">Login</a></button>
-          <button><a href="/signup" class="signup-button">Sign Up</a></button>
-          {{/if}}
+      <!-- Navbar for screens smaller than 768px -->
+      <nav class="navbar navbar-dark bg-black bg-gradient fixed-top d-lg-none">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-0 h1">TabletopTies</span>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+            aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+            aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header bg-black bg-gradient">
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Title</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body bg-black bg-gradient">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                {{#if logged_in}}
+                <li class="nav-item">
+                  <a class="nav-link" href="#" id="logout">Logout</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/chat">Chat</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/game/add">Add Game</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/event/add">Create Event</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/profile">Profile</a>
+                </li>
+                {{else}}
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/signup">Signup</a>
+                </li>
+                {{/if}}
+              </ul>
+              <form class="d-flex mt-3" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-danger" type="submit">Search</button>
+              </form>
+            </div>
           </div>
         </div>
-        <div class="search-bar">
-            <input type="text" placeholder="Search game title">
-            <button>Search</button>
+      </nav>
+
+      <!-- Navbar for screens larger than 768px -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-black bg-gradient d-none d-lg-block">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-0 h1">TabletopTies</span>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              {{#if logged_in}}
+              <li class="nav-item">
+                <a class="nav-link" href="#" id="logout">Logout</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/chat">Chat</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/game/add">Add Game</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/event/add">Create Event</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/profile">Profile</a>
+              </li>
+              {{else}}
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/signup">Signup</a>
+              </li>
+              {{/if}}
+            </ul>
+            <form class="d-flex ms-auto" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-danger" type="submit">Search</button>
+            </form>
+          </div>
         </div>
+      </nav>
     </div>
   </header>
 
-  {{{ body }}}
+  <div style="margin: 5vh">
+    {{{ body }}}
+  </div>
+
 
   <footer>
-    <div class="container">
-      <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span property="dct:title">Tabletop Ties</span> by <span property="cc:attributionName">TT Dev Team</span> is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a></p>
-    </div>
+      <nav class="navbar navbar-dark bg-black bg-gradient sticky-bottom " data-bs-theme="dark"
+        style="height: 8vh">
+        <div class="container-fluid d-flex justify-content-between">
+          <div>
+            <a class="navbar-brand" href="https://github.com/jskelly8">Jess Skelton</a>
+          </div>
+          <div>
+            <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
+              rel="license noopener noreferrer" style="display:inline-block;"><img
+                style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img
+                style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img
+                style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img
+                style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a>
+          </div>
+        </div>
+      </nav>
   </footer>
 
   {{#if logged_in}}
@@ -55,6 +149,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
+    
 </body>
 
 </html>

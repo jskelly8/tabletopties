@@ -1,16 +1,17 @@
-<div class="card text-bg-dark text-center m-4">
+<div class="card text-bg-dark text-center m-4 bg-black bg-gradient">
     <div class="card-header">
-        {{name}}
+        <h5 class="card-title">{{name}}</h5>
     </div>
     <div class="card-body">
-        <h5 class="card-title">Username: {{username}}</h5>
-        <h6 class="card-subtitle mb-3 text-muted">Location: {{location}}</h6>
-        <a href="/users/{{id}}" class="btn btn-dark">View Profile</a>
+        <h5 class="card-subtitle mb-3">Username: {{username}}</h5>
+        <p class="">Location: {{location}}</p>
+        <a href="/users/{{id}}" class="btn btn-outline-danger">View Profile</a>
         <!-- Additional user information can go here -->
-        {{#if interested_games}}
-        <p class="card-text">Games interested in:
-            {{#each interested_games}}{{this}}, {{/each}}
-        </p>
+        {{#if interested_games.length}}
+        <p class="card-text">Games interested in:</p>
+            {{#each interested_games}}
+            <p class="card-text">{{this.title}}</p>
+            {{/each}}
         {{/if}}
     </div>
 </div>

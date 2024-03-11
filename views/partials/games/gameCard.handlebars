@@ -1,13 +1,13 @@
-<div class="card text-bg-dark text-center m-4">
+<div class="card text-bg-dark text-center m-4 bg-black bg-gradient">
     {{!-- <img src="{{image}}" class="card-img-top" alt="{{title}}"> --}}
     <div class="card-header">
-        {{title}}
+        <h5 class="card-title">{{title}}</h5>
     </div>
     <div class="card-body">
-        <h5 class="card-title">{{genre}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Player Count: {{player_count}}</h6>
-        <p class="card-text">Average Play Time: {{avg_play_time}}</p>
-        <p class="card-text text-muted">Description: {{description}}</p>
-        <a href="/games/{{id}}" class="btn btn-dark">Learn More</a>
+        <h6 class="card-subtitle mb-3">{{genre}}</h6>
+        <p class="card-text">Player Count: {{player_count}}</p>
+        <p class="card-text">Average Play Time: {{avg_play_time}} min</p>
+        <p class="card-text">Description: {{description}}</p>
+        <a href="/games/{{id}}" class="btn btn-outline-danger">Learn More</a>
     </div>
 </div>

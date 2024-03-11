@@ -1,32 +1,39 @@
-<div class="single-event">
-    <h1 class="display-4">{{title}}</h1>
-    <p class="lead">{{description}}</p>
-    <p><strong>Location:</strong> {{location}}</p>
-    <p><strong>Date:</strong> {{format_date date_of}}</p>
-    <button data-eventid="{{id}}" id="eventInterest" class="btn btn-dark">I'm Attending</button>
-
-    {{#if event_games}}
-    <div class="games-list mt-4">
-        <h2>Featured Games</h2>
-        <ul class="list-group">
-            {{#each event_games}}
-            <li class="list-group-item">
-                {{this.title}} - {{this.genre}}
-            </li>
-            {{/each}}
-        </ul>
+<main class="container mobile">
+    <div class="text-center">
+        <h1>{{title}}</h1>
+        <div class="my-4 border-bottom border-2">
+            <h3 class="text-danger">Date</h3>
+            <p class="fs-4">{{format_date date_of}}</p>
+        </div>
+        <div class="mb-4 border-bottom border-2">
+            <h3 class="text-danger">Location</h3>
+            <p class="fs-4">{{location}}</p>
+        </div>
+        <div class="mb-4 border-bottom border-2">
+            <h3 class="text-danger">Description </h3>
+            <p class="fs-4">{{description}}</p>
+            <div>
+                <button data-eventid="{{id}}" id="eventInterest" class="btn btn-danger btn-sm mb-4">I'm
+                    Attending</button>
+            </div>
+        </div>
+        <!-- Display interested users if available -->
+        <div class="mb-4">
+            <h3 class="text-danger mb-3">Attendees</h3>
+            <div class="d-flex justify-content-center">
+                {{#if attending}}
+                <ul class="list-group bg-dark col-sm-2 mb-3 mb-sm-0">
+                    {{#each attending}}
+                    <li class="list-group-item bg-dark text-light">
+                        <a href="/users/{{this.id}}" class="text-light text-decoration-none">{{this.name}}</a>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{else}}
+                <p class="fs-4">No participation yet.</p>
+                {{/if}}
+            </div>
+        </div>
     </div>
-    {{/if}}
-
-    {{#if attending}}
-    <div class="attendees-list mt-4">
-        <h2>Attendees</h2>
-        <ul>
-            {{#each attending}}
-            <li><a href="/users/{{this.id}}">{{this.name}}</a></li>
-            {{/each}}
-        </ul>
-    </div>
-    {{/if}}
-</div>
+</main>
 <script src="/js/eventInterest.js"></script>

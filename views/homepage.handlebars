@@ -1,42 +1,45 @@
 <main>
-    <section class="hero">
-        <div class="container">
-            <h1>Discover the best game events happening near you!</h1>
-            <p>Get started with Tabletop-Ties.</p>
-        </div>
+    <section id="heroBanner" class="mobile">
+        <img src="/images/bwGame.jpg" class="img-fluid" alt="Colorful Keyboard-like-keys">
     </section>
 
-    <section class="games-section">
-        <h2>Featured Games</h2>
-        <div class="row">
-            {{#each games as |game|}}
-            <div class="col-md-4 mb-4">
-                {{> games/gameCard this}}
+    <div class="text-center">
+        <div class="">
+            <h1>Discover the games and gamers near you!</h1>
+            <p>Sign up, post games & events, and chat with eachother!</p>
+        </div>
+
+        <section class="border-bottom border-2">
+            <h2 class="text-danger">Featured Games</h2>
+            <div class="row">
+                {{#each games as |game|}}
+                <div class="col-md-4 mb-4">
+                    {{> games/gameCard this}}
+                </div>
+                {{/each}}
             </div>
-            {{/each}}
-        </div>
-    </section>
+        </section>
 
-    <section class="events-section mt-5">
-        <h2>Upcoming Events</h2>
-        <div class="row">
-            {{#each events}}
-            <div class="col-md-6 mb-4">
-                {{> events/eventCard this}}
+        <section class="events-section mt-5 border-bottom border-2">
+            <h2 class="text-danger">Upcoming Events</h2>
+            <div class="row">
+                {{#each events}}
+                <div class="col-md-6 mb-4">
+                    {{> events/eventCard this}}
+                </div>
+                {{/each}}
             </div>
-            {{/each}}
-        </div>
-    </section>
+        </section>
 
-    <section class="profiles-section mt-5">
-        <h2>Gamer Profiles</h2>
-        <div class="row">
-            {{#each users as |user|}}
-            <div class="col-md-6 mb-4">
-                {{> users/userProfileCard this}}
+        <section class="profiles-section mt-5">
+            <h2 class="text-danger">Gamer Profiles</h2>
+            <div class="row">
+                {{#each users as |user|}}
+                <div class="col-md-6 mb-4">
+                    {{> users/userProfileCard this}}
+                </div>
+                {{/each}}
             </div>
-            {{/each}}
-        </div>
-    </section>
-
+        </section>
+    </div>
 </main>
