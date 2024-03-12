@@ -6,11 +6,15 @@
     <div class="text-center">
         <div class="">
             <h1>Discover the games and gamers near you!</h1>
-            <p>Sign up, post games & events, and chat with eachother!</p>
+            <p class="fs-4">Sign up, post games & events, and chat with eachother!</p>
+            <p>Skip to: <a href="#games" class="text-danger text-decoration-none">Games</a>, 
+                <a href="#events" class="text-danger text-decoration-none">Events</a>, 
+                <a href="#profiles" class="text-danger text-decoration-none">Gamers</a>
+            </p>
         </div>
 
         <section class="border-bottom border-2">
-            <h2 class="text-danger">Featured Games</h2>
+            <h2 class="text-danger" id="games">Featured Games</h2>
             <div class="row">
                 {{#each games as |game|}}
                 <div class="col-md-4 mb-4">
@@ -21,7 +25,7 @@
         </section>
 
         <section class="events-section mt-5 border-bottom border-2">
-            <h2 class="text-danger">Upcoming Events</h2>
+            <h2 class="text-danger" id="events">Upcoming Events</h2>
             <div class="row">
                 {{#each events}}
                 <div class="col-md-6 mb-4">
@@ -32,7 +36,7 @@
         </section>
 
         <section class="profiles-section mt-5">
-            <h2 class="text-danger">Gamer Profiles</h2>
+            <h2 class="text-danger" id="profiles">Gamer Profiles</h2>
             <div class="row">
                 {{#each users as |user|}}
                 <div class="col-md-6 mb-4">
