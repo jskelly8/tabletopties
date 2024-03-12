@@ -16,6 +16,9 @@ const logoutFormHandler = async () => {
 document
   .querySelector('#logout')
   .addEventListener('click', logoutFormHandler);
+document
+  .querySelector('#logout2')
+  .addEventListener('click', logoutFormHandler);
 
 // Timed Logout Functionality
 let logoutTimer;
