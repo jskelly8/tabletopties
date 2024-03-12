@@ -15,9 +15,11 @@ const gameInterestFormHandler = async (event) => {
 
         // Response checker
         if (response.ok) {
-            document.location.replace('/profile'); // Redirect to profile page
+            document.location.replace('/profile'); 
         } else {
-            alert('Failed to add to interest.');
+            const errorMessage = "Failed to add to interest. Please try again later.";
+            document.getElementById("errorBox").innerHTML = errorMessage;
+            document.getElementById("errorBox").style.display = "block";
         }
     }
 };

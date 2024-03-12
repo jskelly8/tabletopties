@@ -12,6 +12,9 @@
         <div class="mb-4 border-bottom border-2">
             <h3 class="text-danger">Description </h3>
             <p class="fs-4">{{description}}</p>
+            <div id="errorBox" class="alert alert-danger" role="alert" style="display: none;">
+                <!-- Error message will be inserted here -->
+            </div>
             <div>
                 <button data-eventid="{{id}}" id="eventInterest" class="btn btn-danger btn-sm mb-4">I'm
                     Attending</button>

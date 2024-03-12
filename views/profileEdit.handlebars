@@ -1,5 +1,8 @@
 <main class="container mobile">
     <h2 class="text-center mb-5">Edit Profile</h2>
+    <div id="errorBox" class="alert alert-danger" role="alert" style="display: none;">
+        <!-- Error message will be inserted here -->
+    </div>
     <form id="edit-profile-form">
         <div class="row mb-3">
             <label for="name" class="col-sm-2 col-form-label col-form-label-lg">Name:</label>
@@ -16,7 +19,7 @@
         <div class="row mb-3">
             <label for="location" class="col-sm-2 col-form-label col-form-label-lg">Location:</label>
             <div class="col-sm-10">
-                <input type="text" id="location" name="location" class="form-control" value="{{user.location}}">
+                <input type="text" id="location" name="location" class="form-control" value="{{user.location}}" required>
             </div>
         </div>
         <!-- Add other fields as necessary - Delete for interested_games Needed -->

@@ -19,9 +19,11 @@ const editProfileFormHandler = async (event) => {
 
         // Response checker
         if (response.ok) {
-            document.location.replace('/profile'); // Redirect to profile page
+            document.location.replace('/profile');
         } else {
-            alert('Failed to update profile.');
+            const errorMessage = "Failed to update profile, Please try again.";
+            document.getElementById("errorBox").innerHTML = errorMessage;
+            document.getElementById("errorBox").style.display = "block";
         }
     }
 };

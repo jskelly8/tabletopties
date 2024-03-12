@@ -24,10 +24,11 @@ const addEventFormHandler = async (event) => {
 
         // Response checker
         if (response.ok) {
-            alert('Event created successfully!');
-            window.location.href = '/'; // Redirect to homepage or events page
+            window.location.href = '/#events';
         } else {
-            alert('Failed to create event.');
+            const errorMessage = "Failed to create event, Please fill out all fields and try again.";
+            document.getElementById("errorBox").innerHTML = errorMessage;
+            document.getElementById("errorBox").style.display = "block";
         }
     }
 };

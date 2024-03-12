@@ -24,10 +24,11 @@ const addGameFormHandler = async (event) => {
 
         // Response checker
         if (response.ok) {
-            alert('Game added successfully!');
-            document.location.href = '/'; // Redirect to homepage or events page
+            document.location.href = '/#games';
         } else {
-            alert('Failed to add game.');
+            const errorMessage = "Failed to add game, Please fill out all fields and try again.";
+            document.getElementById("errorBox").innerHTML = errorMessage;
+            document.getElementById("errorBox").style.display = "block";
         }
     }
 };

@@ -17,7 +17,9 @@ const eventInterestFormHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/profile'); // Redirect to profile page
         } else {
-            alert('Failed to add attendance.');
+            const errorMessage = "Failed to add attendance. Please try again later.";
+            document.getElementById("errorBox").innerHTML = errorMessage;
+            document.getElementById("errorBox").style.display = "block";
         }
     }
 };

@@ -20,7 +20,9 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/profile'); // Redirect to profile page
     } else {
-      alert(response.statusText);
+      const errorMessage = "Login failed. Please check your email and password.";
+      document.getElementById("errorBox").innerHTML = errorMessage;
+      document.getElementById("errorBox").style.display = "block";
     }
   }
 };
