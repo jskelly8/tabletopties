@@ -1,1 +1,0 @@
-// Search bar event listener and functionality
