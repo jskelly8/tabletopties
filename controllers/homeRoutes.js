@@ -12,10 +12,16 @@ router.get('/', async (req, res) => {
         const games = gameData.map((game) => game.get({ plain: true }));
         const userData = await User.findAll({});
         const users = userData.map((user) => user.get({ plain: true }));
+        const uniqueGenresData = await Game.findAll({
+            attributes: ['genre'],
+            group: ['genre']
+        });
+        const genres = uniqueGenresData.map(genre => genre.genre);
         res.render('homepage', {
           events,
           games,
           users,
+          genres,
           logged_in: req.session.logged_in
        });
     } catch (err) {
@@ -231,6 +237,25 @@ router.get('/profile/edit', withAuth, async (req, res) => {
         res.render('profileEdit', { user, logged_in: true });
     } catch (error) {
         res.status(500).send(error.toString());
+    }
+});
+
+// GET route to fetch games by genre
+router.get('/games/genre/:genre', async (req, res) => {
+    try {
+        const gamesByGenre = await Game.findAll({
+            where: { genre: req.params.genre }
+        });
+        const games = gamesByGenre.map(game => game.get({ plain: true }));
+        
+        res.render('gamesByGenre', {
+            games,
+            genre: req.params.genre,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        console.error('Failed to fetch games by genre:', err);
+        res.status(500).json({ message: 'Error fetching games by genre', err });
     }
 });
 

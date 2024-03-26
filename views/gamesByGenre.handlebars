@@ -1,0 +1,17 @@
+<main class="container mobile">
+    <div class="text-center">
+        <h1>Games in '{{genre}}'</h1>
+        <div class="row">
+            {{#each games}}
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <div class="card text-bg-dark text-center m-4 bg-black bg-gradient">
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.title}}</h5>
+                        <a href="/games/{{this.id}}" class="btn btn-outline-danger btn-sm">More Info</a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</main>

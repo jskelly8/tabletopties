@@ -4,17 +4,22 @@
     </section>
 
     <div class="text-center">
-        <div class="">
+        <div class="border-bottom border-2 my-3">
             <h1>Discover the games and gamers near you!</h1>
             <p class="fs-4">Sign up, post games & events, and chat with eachother!</p>
-            <p>Skip to: <a href="#games" class="text-danger text-decoration-none">Games</a>, 
-                <a href="#events" class="text-danger text-decoration-none">Events</a>, 
+            <p>Skip to: <a href="#games" class="text-danger text-decoration-none">Games</a>,
+                <a href="#events" class="text-danger text-decoration-none">Events</a>,
                 <a href="#profiles" class="text-danger text-decoration-none">Gamers</a>
             </p>
         </div>
 
         <section class="border-bottom border-2">
             <h2 class="text-danger" id="games">Featured Games</h2>
+            <p>Search by genre:
+                {{#each genres}}
+                <a href="/games/genre/{{this}}" class="text-danger text-decoration-none">{{this}}, </a>
+                {{/each}}
+            </p>
             <div class="row">
                 {{#each games as |game|}}
                 <div class="col-md-4 mb-4">

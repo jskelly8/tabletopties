@@ -106,17 +106,5 @@ router.get('/title/:title', async (req, res) => {
     }
 });
 
-// GET route to search by genre  ---- currently not working ----
-router.get('/genre/:genre', async (req, res) => {
-    try {
-        const gamesByGenre = await Game.findAll({
-            where: { genre: req.params.genre }
-        });
-        res.status(200).json(gamesByGenre);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
 // Export
 module.exports = router;
