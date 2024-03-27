@@ -90,7 +90,7 @@ router.get('/title/:title', async (req, res) => {
         if (eventData.length) {
             return res.status(200).json(eventData);
         } else {
-            return res.status(404).json({ message: 'nope' });
+            return res.status(404).json({ message: 'No event found with that title, Please try again.' });
         }
     } catch (error) {
         console.log(error);

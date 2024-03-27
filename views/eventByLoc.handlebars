@@ -1,0 +1,13 @@
+<h1>Games in '{{location}}'</h1>
+<div class="row">
+    {{#each event}}
+    <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card text-bg-dark text-center m-4 bg-black bg-gradient">
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <a href="/events/{{id}}" class="btn btn-outline-danger btn-sm">More Info</a>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>

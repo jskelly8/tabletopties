@@ -17,11 +17,17 @@ router.get('/', async (req, res) => {
             group: ['genre']
         });
         const genres = uniqueGenresData.map(genre => genre.genre);
+        const uniqueLocData = await Event.findAll({
+            attributes: ['location'],
+            group: ['location']
+        });
+        const locations = uniqueLocData.map(location => location.location);
         res.render('homepage', {
           events,
           games,
           users,
           genres,
+          locations,
           logged_in: req.session.logged_in
        });
     } catch (err) {
@@ -258,6 +264,26 @@ router.get('/games/genre/:genre', async (req, res) => {
         res.status(500).json({ message: 'Error fetching games by genre', err });
     }
 });
+
+// GET route to fetch events by location
+router.get('/events/location/:location', async (req, res) => {
+    try {
+        const eventByLoc = await Event.findAll({
+            where: { location: req.params.location }
+        });
+        const event = eventByLoc.map(event => event.get({ plain: true }));
+        
+        res.render('eventByLoc', {
+            event,
+            location: req.params.location,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        console.error('Failed to fetch events by location:', err);
+        res.status(500).json({ message: 'Error fetching event by location', err });
+    }
+});
+
 
 // Export
 module.exports = router;

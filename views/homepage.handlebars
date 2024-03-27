@@ -31,7 +31,7 @@
 
         <section class="events-section mt-5 border-bottom border-2">
             <h2 class="text-danger" id="events">Upcoming Events</h2>
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center mt-3">
                 <form class="input-group input-group-sm mb-3" role="search" style="max-width: fit-content;">
                     <input id="eventSearchInput" class="form-control" type="search" placeholder="Event Title"
                         aria-label="Search">
@@ -39,6 +39,11 @@
                 </form>
             </div>
 
+            <p>Search by location:
+                {{#each locations}}
+                <a href="/events/location/{{this}}" class="text-danger text-decoration-none">{{this}}, </a>
+                {{/each}}
+            </p>
 
             <div class="row" id="eventCardsContainer">
                 {{#each events}}
