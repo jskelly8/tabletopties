@@ -31,6 +31,11 @@
 
         <section class="events-section mt-5 border-bottom border-2">
             <h2 class="text-danger" id="events">Upcoming Events</h2>
+            <form class="d-flex mt-3" role="search">
+                <input id="eventSearchInput" class="form-control me-2" type="search" placeholder="Event Title"
+                    aria-label="Search">
+                <button id="eventSearchButton" class="btn btn-danger" type="submit">Search</button>
+            </form>
             <div class="row">
                 {{#each events}}
                 <div class="col-md-6 mb-4">
@@ -52,3 +57,4 @@
         </section>
     </div>
 </main>
+<script src="/js/eventSearch.js"></script>

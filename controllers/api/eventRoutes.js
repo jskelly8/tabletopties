@@ -1,6 +1,7 @@
 // Imports
 const router = require('express').Router();
 const { Event, Game, User, UsersEvents, EventsGames } = require('../../models');
+const { Op } = require("sequelize");
 const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
 
@@ -74,41 +75,26 @@ router.post('/add', withAuth, async (req, res) => {
     }
 });
 
-// GET route to search by date ---- currently not working ----
-router.get('/date/:date_of', async (req, res) => {
+// GET route to search by event title
+router.get('/title/:title', async (req, res) => {
     try {
+        console.log(req.params.title);
         const eventData = await Event.findAll({
             where: {
-                date_of: req.query.date // Date is in 'YYYY-MM-DD' format
-            },
-            // Possibly add other relevant associations and attributes
-            // include: []
-        });
-        res.status(200).json(eventData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-// GET route to search by location  ---- currently not working ----
-router.get('/location/:location', async (req, res) => {
-    try {
-        const eventData = await Event.findAll({
-            where: {
-                location: sequelize.where(sequelize.fn('LOWER', sequelize.col('location')), 'LIKE', `%${req.query.location.toLowerCase()}%`)
-            },
-            include: [
-                {
-                    model: Game,
-                    through: EventsGames,
-                    as: 'event_games', 
+                title: {
+                    [Op.like]: `%${req.params.title}`
                 }
-            ]
+            }
         });
-        res.status(200).json(eventData);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json(err);
+
+        if (eventData.length) {
+            return res.status(200).json(eventData);
+        } else {
+            return res.status(404).json({ message: 'nope' });
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
     }
 });
 
