@@ -98,5 +98,24 @@ router.get('/title/:title', async (req, res) => {
     }
 });
 
+// GET route to search by event date
+router.get('/date/:date', async (req, res) => {
+    try {
+        const dateQuery = req.params.date;
+        const eventData = await Event.findAll({
+            where: {
+                date_of: sequelize.where(sequelize.fn('DATE', sequelize.col('date_of')), '=', dateQuery)
+            }
+        });
+        if (eventData) {
+            res.json(eventData);
+        } else {
+            res.status(404).json({ message: 'No events found for this date.' });
+        }
+    } catch (err) {
+        res.status(500).json({ message: 'Server error', err });
+    }
+});
+
 // Export
 module.exports = router;

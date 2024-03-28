@@ -39,6 +39,15 @@
                 </form>
             </div>
 
+            <div class="d-flex justify-content-center">
+                <form id="searchByDateForm" class="input-group input-group-sm mb-3" role="search"
+                    style="max-width: fit-content;">
+                    <input type="date" id="dateSearchInput" class="form-control" placeholder="YYYY-MM-DD"
+                        aria-label="Search">
+                    <button class="btn btn-outline-danger" type="submit">Search by Date</button>
+                </form>
+            </div>
+
             <p>Search by location:
                 {{#each locations}}
                 <a href="/events/location/{{this}}" class="text-danger text-decoration-none">{{this}}, </a>
@@ -67,3 +76,4 @@
     </div>
 </main>
 <script src="/js/eventSearch.js"></script>
+<script src="/js/eventDateSearch.js"></script>
