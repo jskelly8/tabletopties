@@ -1,6 +1,7 @@
 // Imports
 const router = require('express').Router();
 const { User, Game } = require('../../models');
+const { Op } = require("sequelize");
 const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
 
@@ -123,26 +124,26 @@ router.post('/logout', (req,res) => {
     }
 });
 
-// GET route to search for users by name ---- currently not working ----
-router.get('/search', async (req, res) => {
+// GET route to search for users by username
+router.get('/username/:username', async (req, res) => {
     try {
+        console.log(req.params.username);
         const userData = await User.findAll({
             where: {
-                name: sequelize.where(sequelize.fn('LOWER', sequelize.col('name')), 'LIKE', `%${req.query.name.toLowerCase()}%`)
-            },
-            attributes: ['id', 'name', 'email'], // Possibly add other relevant attributes
-            include: [{
-                model: Game,
-                as: 'interested_games',
-                attributes: ['title', 'genre'],
-                through: {
-                    attributes: [],
-                },
-            }]
+                username: {
+                    [Op.like]: `%${req.params.username}`
+                }
+            }
         });
-        res.status(200).json(userData);
-    } catch (err) {
-        res.status(500).json(err);
+
+        if (userData.length) {
+            return res.status(200).json(userData);
+        } else {
+            return res.status(404).json({ message: 'nope' });
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
     }
 });
 

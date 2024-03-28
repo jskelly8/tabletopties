@@ -65,6 +65,13 @@
 
         <section class="profiles-section mt-5">
             <h2 class="text-danger" id="profiles">Gamer Profiles</h2>
+            <div class="d-flex justify-content-center mt-3">
+                <form class="input-group input-group-sm mb-3" role="search" style="max-width: fit-content;">
+                    <input id="userSearchInput" class="form-control" type="search" placeholder="Username"
+                        aria-label="Search">
+                    <button id="userSearchButton" class="btn btn-outline-danger" type="submit">Search</button>
+                </form>
+            </div>
             <div class="row">
                 {{#each users as |user|}}
                 <div class="col-md-6 mb-4">
@@ -77,3 +84,4 @@
 </main>
 <script src="/js/eventSearch.js"></script>
 <script src="/js/eventDateSearch.js"></script>
+<script src="/js/userSearch.js"></script>

@@ -10,7 +10,6 @@ const searchFormHandlerMobile = async (event) => {
 
     // Redirect to the game ID route if a valid query is provided
     if (query) {
-        // window.location.href = `/games/${encodeURIComponent(query)}`;
         const response = await fetch(`/api/games/title/${query}`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -34,7 +33,6 @@ const searchFormHandlerDesktop = async (event) => {
 
     // Redirect to the game ID route if a valid query is provided
     if (query) {
-        // window.location.href = `/games/${encodeURIComponent(query)}`;
         const response = await fetch(`/api/games/title/${query}`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
