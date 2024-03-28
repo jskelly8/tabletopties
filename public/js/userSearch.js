@@ -14,11 +14,11 @@ const searchFormHandlerUser = async (event) => {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         });
-        console.log(response);
         const data = await response.json();
-        console.log(data);
         if (response.status === 404) {
-            alert(data.message);
+            const searchErrorBox = document.getElementById("userSearchErrorBox");
+            searchErrorBox.innerHTML = data.message;
+            searchErrorBox.style.display = "block";
         }
         document.location.replace(`/users/${data[0].id}`);
     }

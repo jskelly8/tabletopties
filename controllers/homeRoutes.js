@@ -44,10 +44,7 @@ router.get('/profile', withAuth, async (req, res) => {
                 {
                     model: Game,
                     as: 'interested_games', 
-                    attributes: ['id', 'title', 'genre'],
-                    through: {
-                        attributes: [], // Exclude join table attributes if not needed
-                    },
+                    attributes: ['id', 'title', 'genre']
                 },
                 {
                     model: Event,
@@ -74,7 +71,6 @@ router.get('/profile', withAuth, async (req, res) => {
 // GET route to display the add a game form
 router.get('/game/add', withAuth, (req, res) => {
     res.render('gameAdd', {
-        // IF needed, later add any necessary flags below
         logged_in: req.session.logged_in
     });
 });

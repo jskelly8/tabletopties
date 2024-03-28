@@ -139,33 +139,10 @@ router.get('/username/:username', async (req, res) => {
         if (userData.length) {
             return res.status(200).json(userData);
         } else {
-            return res.status(404).json({ message: 'nope' });
+            return res.status(404).json({ message: 'No user found under that username' });
         }
     } catch (error) {
         console.log(error);
-        res.status(500).json(error);
-    }
-});
-
-
-
-// GET route for profile 'matching' ---- currently not working ----
-router.get('/match', withAuth, async (req, res) => {
-    try {
-        const currentUser = await User.findByPk(req.session.user_id, {
-            include: [{ model: Game, as: 'game_title_interest'}]
-        });
-        const matchedUsers = await User.findAll({
-            include: [{
-                model: Game,
-                as: 'game_title_interest',
-                where: {
-                    id: currentUser.game_title_interest.map(game => game.id)
-                }
-            }]
-        });
-        res.status(200).json(matchedUsers);
-    } catch (error) {
         res.status(500).json(error);
     }
 });

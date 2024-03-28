@@ -1,4 +1,8 @@
 <main>
+    <!-- Error message display area for search errors -->
+    <div id="gameSearchErrorBox" class="alert alert-danger" role="alert" style="display: none;">
+        <!-- Error message will be inserted here -->
+    </div>
     <section id="heroBanner" class="mobile">
         <img src="/images/bwGame.jpg" class="img-fluid" alt="Colorful Keyboard-like-keys">
     </section>
@@ -54,6 +58,11 @@
                 {{/each}}
             </p>
 
+            <!-- Error message display area for search errors -->
+            <div id="eventSearchErrorBox" class="alert alert-danger" role="alert" style="display: none;">
+                <!-- Error message will be inserted here -->
+            </div>
+
             <div class="row" id="eventCardsContainer">
                 {{#each events}}
                 <div class="col-md-6 mb-4">
@@ -71,6 +80,10 @@
                         aria-label="Search">
                     <button id="userSearchButton" class="btn btn-outline-danger" type="submit">Search</button>
                 </form>
+            </div>
+            <!-- Error message display area for search errors -->
+            <div id="userSearchErrorBox" class="alert alert-danger" role="alert" style="display: none;">
+                <!-- Error message will be inserted here -->
             </div>
             <div class="row">
                 {{#each users as |user|}}

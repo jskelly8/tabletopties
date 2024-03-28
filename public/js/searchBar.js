@@ -41,7 +41,9 @@ const searchFormHandlerDesktop = async (event) => {
         const data = await response.json();
         console.log(data);
         if (response.status === 404) {
-            alert(data.message);
+            const searchErrorBox = document.getElementById("gameSearchErrorBox");
+            searchErrorBox.innerHTML = data.message;
+            searchErrorBox.style.display = "block";
         }
         document.location.replace(`/games/${data[0].id}`);
     }

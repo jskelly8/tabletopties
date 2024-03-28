@@ -83,18 +83,9 @@ router.get('/title/:title', async (req, res) => {
                     [Op.like]: `%${req.params.title}`
                 }
             }
-            // Possibly add other relevant associations and attributes
         });
-
-        // const games = gameData.map(game => game.get({ plain: true }));
-        // console.log(games);
-
-        // console.log('ID: ', games[0].id); 
         
         if (gameData.length) {
-            // console.log('Game found with ID:', games[0].id);
-            // Redirect to the game page using the found game's ID
-            // return res.redirect(`/games/${games[0].id}`);
             return res.status(200).json(gameData);
         } else {
             return res.status(404).json({ message: 'No game found with this title' });

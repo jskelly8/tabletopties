@@ -2,6 +2,7 @@
 const searchFormHandler = async (event) => {
     event.preventDefault();
     const query = document.querySelector('#eventSearchInput').value.trim();
+    const errorBox = document.getElementById('eventSearchErrorBox');
 
     if (query) {
         try {
@@ -17,7 +18,8 @@ const searchFormHandler = async (event) => {
             const data = await response.json();
 
             if (data.length === 0) {
-                alert('No events found with that title');
+                errorBox.textContent = 'No events found with that title.';
+                errorBox.style.display = 'block';
                 return;
             }
 
@@ -51,8 +53,8 @@ const searchFormHandler = async (event) => {
                 eventCardsContainer.innerHTML += eventCardHTML;
             });
         } catch (error) {
-            console.error('Error fetching events:', error);
-            alert('Failed to fetch events. Please try again later.');
+            errorBox.textContent = 'No events found with that title'; 
+            errorBox.style.display = 'block';
         }
     }
 };

@@ -3,6 +3,7 @@ const searchByDateFormHandler = async (event) => {
     event.preventDefault();
 
     const searchDate = document.querySelector('#dateSearchInput').value.trim();
+    const errorBox = document.getElementById('eventSearchErrorBox');
 
     if (searchDate) {
         try {
@@ -15,11 +16,15 @@ const searchByDateFormHandler = async (event) => {
                 const events = await response.json();
                 displayEvents(events);
             } else {
-                throw new Error('Failed to fetch events');
+                const errorText = 'Failed to find event. Please try again later.';
+                errorBox.textContent = errorText;
+                errorBox.style.display = 'block';
+                return;
             }
         } catch (error) {
             console.error('Error:', error);
-            displayEvents([]);
+            errorBox.textContent = 'Unable to find event for that date.';
+            errorBox.style.display = 'block';
         }
     }
 };
@@ -28,11 +33,6 @@ const searchByDateFormHandler = async (event) => {
 const displayEvents = (events) => {
     const container = document.querySelector('#eventCardsContainer');
     container.innerHTML = '';
-
-    if (events.length === 0) {
-        container.innerHTML = '<p>No events found for this date.</p>';
-        return;
-    }
 
     events.forEach(event => {
         const eventElement = document.createElement('div');
