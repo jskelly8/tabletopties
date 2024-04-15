@@ -26,7 +26,7 @@ For a list of dependencies and technologies used, please vist the [Features](#fe
 
 To visit the deployed application, click the following image:
 
-[![Screenshot of site](./public/images/ttt.png)](WEBSITE)
+[![Screenshot of site](./public/images/ttt.png)](https://tabletopties-6b21a152bf3f.herokuapp.com/)
 
 Please revisit the [Description](#description) section, or skip to the [Features](#features) section to review application specific features.
 
