@@ -22,7 +22,7 @@ document
 
 // Timed Logout Functionality
 let logoutTimer;
-const TIMEOUT = 10 * 60 * 1000; // 10 min idle log out
+const TIMEOUT = 30 * 60 * 1000; // 30 min idle log out
 
 // Resets the logout timer
 function resetTimer() {
