@@ -1,72 +1,80 @@
-  # TableTop Ties
-  Find new friends to share your tabletop gaming experiences with using the TableTop Ties platform. Find events and new games to get excited about.  
+# TableTopTies
+![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-lightgrey.svg)
 
+## Description
+TableTopTies is an engaging online platform designed for tabletop gaming enthusiasts to connect and share their passion. With features that allow users to find events, create game entries, and join community-built gaming sessions, TableTopTies enhances the experience of gaming together. Secure profiles, dynamic event listings, and live group messaging enable users to foster new friendships and arrange game nights with ease. Whether you're into TTRPG, strategy games, or TCG, TableTopTies is your go-to network for finding like-minded players and exploring new gaming opportunities.
 
+## Table of Contents
 
-  ## Description
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Badges](#badges)
+- [Features](#features)
+- [Credits](#credits)
+- [Questions](#questions)
 
-  Uniting gamers one event at a time! TableTop Ties is an online app for like-minded gamers to find events where they can play their favorite games of various genres such as TTRPG, strategy or TCG. These group events will be for specific games and locations determined by user interaction. Dynamic creation of new Game entries and new Events allow users to build the gaming community based on whatever play format is desired. Our app utilizes secure accounts with favorite game preferences in profiles. Members can message fellow users to get to know one another as well as coordinate games outside of the established events on our application. "Send a Raven" allows the conversation about games to establish friendships amongst players. Avid gamers can all agree that there is nothing harder than attempting to establish new instances of playing their favorite games especially when you don't have a good way to meet people who want to play the same game. TableTop Ties hopes to change the landscape of gameplay matchmaking for the better. 
+## Installation
 
-  ## Table of Contents
-  * [Installation](#installation)
-  * [Usage](#usage)
-  * [Contributions](#contributions)
-  * [Tests](#tests)
-  * [License](#license)
-  * [Contact](#contact)
+If just visiting the site, please see the deployed application link in the [Usage](#usage) section, and then use or visit as desired. 
 
-  
-  ## Installation
+In order to test the code, please use `npm i` in order to install the required dependiencies listed in the package.json, `npm run seed` to seed pre-built test data, and then `npm run start` to start a local server version. 
 
-  Utilizes Node.js with Express, MySQL, Sequelize, dotenv, and socket.io
+For a list of dependencies and technologies used, please vist the [Features](#features) section.
 
-  Install all necessary dependencies by running the following command: 
-  ```bash
-  npm i
-  ```
-  Seed the necessary data for all tables in the database by running the following command:
-  ```bash
-  npm run seed
-  ```
-  Initialize the server by running the following command:
-  ```bash
-  npm start
-  ```
+## Usage
 
-  ## Usage
-  Intended use solely for networking amongst users to create a collaborative community.
+To visit the deployed application, click the following image:
 
-  ## Contributions
+[![Screenshot of site](./public/images/ttt.png)](WEBSITE)
 
-  Project Contributors: <a href="www.github.com/jskelly8">Jess</a> - FullStack | <a href="www.github.com/Gerlach0130">Michael</a> - FullStack | <a href="www.github.com/EowynStark">Andria</a> - FullStack | <a href="www.github.com/cjva24">CJ</a> -FrontEnd
- 
+Please revisit the [Description](#description) section, or skip to the [Features](#features) section to review application specific features.
 
-  ## Version History and Future Development
-  Version 1.0 created on Jan. 31, 2024
-  
-  Deployed Feb. 11, 2024
-  +   https://desolate-coast-16417-f21d4a060ca1.herokuapp.com/
-  +   https://github.com/Gerlach0130/tabletop-ties  
-
-  Future development: 
-  + Search function for Events, Games, Users
-  + Robust Native Matchmaking functionality to suggest new connections with players based on common interests
-  + More to come
-   
-  ## Tests
-
-  Insomnia Core used for server testing.
-
-  ## License
+## License
 
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 This [license](./LICENSE) enables reusers to copy and distribute the material in any medium or format in unadapted form only, for noncommercial purposes only, and only so long as attribution is given to the creator. 
 
-Copyright(c) 2024
+## Badges
 
-  ## Contact
+![Static Badge](https://img.shields.io/badge/thank_you-for_visiting-purple)
 
-  Any questions or comments can be directed to any of the above [contributors.](#contributions)
+## Features
 
+### App Features:
+* **Event Discovery and Management:** Users can discover upcoming gaming events and manage their own events, leveraging a dynamic interface that allows for easy browsing and interaction.
+* **Game Entry Creation:** Gamers can create entries for new games, including details such as game type, rules, and player requirements, which helps in organizing and finding players for less popular or new games.
+* **Community Building Tools:** With integrated live group messaging, users can communicate in real time to discuss games, coordinate events, or just socialize, enhancing the sense of community.
+* **Profile Customization:** Secure user profiles that can be customized with favorite game preferences, biography, and other personal touches that allow users to express themselves and find like-minded players.
+* **Matchmaking System:** An innovative matchmaking feature suggests game events and other users with similar interests, improving the networking experience and making it easier to find suitable gaming partners.
 
+### Technologies used:
+* **Node.js and Express:** For robust server-side functionality.
+* **Socket.io:** Enables real-time, bidirectional and event-based communication.
+* **MySQL/Sequelize:** Utilized for database management and model querying, which supports complex user and event data handling.
+* **Handlebars:** Simplifies the generation of HTML and helps in creating a dynamic user interface.
+* **JavaScript & JSON:** For handling logic and data exchange.
+* **Dotenv:** Manages environment variables independently of application code.
+* **bcrypt:** Provides secure password hashing, enhancing application security.
+* **CSS/Bootstrap:** Used for styling and responsive design, ensuring a seamless user experience across different devices.
+* **Heroku:** Platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+
+## Credits
+
+Version 1.5 Deployed April 15, 2024
+- Originally this version was forked from a previous group project in bootcamp and completely upgraded. 
+In this version, the work was solo except for some wonderful help from [Kevin Dallas](https://github.com/okni-c) who helped debug and fix an issue grabbing session id for socket.io functionality. Check out his work!
+
+Version 1.0 Deployed Feb. 11, 2024
+  + https://desolate-coast-16417-f21d4a060ca1.herokuapp.com/
+  + https://github.com/Gerlach0130/tabletop-ties 
+  + Originial contributors: 
+    * [Jess](https://github.com/jskelly8) | Fullstack
+    * [Michael](https://github.com/Gerlach0130) | Initialization of project files, front end JS, CSS Styling
+    * [Andria](https://github.com/EowynStark) | Original attempt at utilizing socket.io,  research, presentation materials, backend initialzation 
+    * [CJ](https://github.com/cjva24) | Original handlebars initialzation 
+
+## Questions
+
+If you have any questions, feel free to reach out to me via [GitHub](https://github.com/jskelly8/) or email me at jessskelton888@gmail.com.
