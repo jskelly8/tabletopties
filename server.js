@@ -22,26 +22,26 @@ const hbs = exphbs.create({ helpers });
 
 // Session configuration
 const sess = {
-    secret: 'Super secret secret',
-    cookie: {
-      maxAge: 300000,
-      httpOnly: true,
-      secure: false,
-      sameSite: 'strict',
-    },
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-      db: sequelize
-    })
+  secret: 'Super secret secret',
+  cookie: {
+    maxAge: 300000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
 };
 
 const sessionMiddleware = session(sess);
 app.use(sessionMiddleware);
 
 io.use(sharedsession(sessionMiddleware, {
-    autoSave:true
-})); 
+  autoSave: true
+}));
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
@@ -58,7 +58,7 @@ io.on('connection', (socket) => {
   console.log(socket.handshake.session);
 
   socket.on('disconnect', () => {
-      console.log('user disconnected');
+    console.log('user disconnected');
   });
 
   socket.on('chat message', (message) => {
@@ -66,18 +66,18 @@ io.on('connection', (socket) => {
     const userId = socket.handshake.session.user_id;
     console.log(`message from ${username}: ${message} : ID=${userId}`);
     Message.create({
-        username: username,
-        user_id: userId,
-        message: message
+      username: username,
+      user_id: userId,
+      message: message
     }).then(() => {
-        io.emit('chat message', { userId, username, message });
+      io.emit('chat message', { userId, username, message });
     }).catch(err => console.error(err));
   });
 });
 
 sequelize.sync({ force: false }).then(() => {
-console.log('Database synchronized');
-server.listen(PORT, () => { 
- console.log('Now listening');
-});
+  console.log('Database synchronized');
+  server.listen(PORT, () => {
+    console.log('Now listening');
+  });
 });
